@@ -19,10 +19,7 @@ public class SalesTaxes {
 
 
     ArrayList <String> parsedFile = newFile1.parseFile(args[0]);
-    System.out.println("InputReceipt 1::: "+ parsedFile);
-
-    DecodeInput decodedArray = new DecodeInput();
-    decodedArray.splitLineItems(parsedFile);
+    System.out.println(parsedFile);
 
     // String message = "hello at home";
     // String[] messageArray = message.split("at");
