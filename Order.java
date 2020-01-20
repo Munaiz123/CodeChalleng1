@@ -1,16 +1,23 @@
 import java.util.ArrayList;
 
+
 public class Order{
   ArrayList<String> items;
-  int numberOfItems;
+  ArrayList<Order> itemsArray = new ArrayList<Order>();
+
+
   double subTotal;
   double tax;
   double total;
 
-
   public Order(ArrayList<String> itemsArray){
     items = itemsArray;
-    numberOfItems = itemsArray.size();
+  }
+
+  public double processOrder(){
+    // I would like this method to loop through the productArray(array of objects) and calculate the tax, subotal & total.
+
+    return total;
   }
 
 }

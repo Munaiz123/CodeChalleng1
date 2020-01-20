@@ -16,7 +16,7 @@ public class ParseInputFile{
 
   public ArrayList<String> parseFile(String fileName)throws IOException{
 
-    ArrayList <String> itemsWithoutPrice = new ArrayList<String>();
+    ArrayList <String> itemsWithPrice = new ArrayList<String>();
 
     Path path = Paths.get(fileName);
     Scanner fileText = new Scanner(path);
@@ -24,11 +24,12 @@ public class ParseInputFile{
     while(fileText.hasNextLine()){
       String line = fileText.nextLine();
       String[] subStrings = line.split(" at ");
-      itemsWithoutPrice.addAll(Arrays.asList(subStrings[0]));
+
+      itemsWithPrice.addAll(Arrays.asList(subStrings));
     }
     fileText.close();
 
-    return itemsWithoutPrice;
+    return itemsWithPrice;
   }
 
 }
