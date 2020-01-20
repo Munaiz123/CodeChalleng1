@@ -8,7 +8,11 @@ import java.io.IOException;
 
 public class ParseInputFile{
 
-  // This method parses each line item as an element of an ArrayList + returns the ArrayList.
+  /*
+  This method parses each line in the .txt file as an element of an ArrayList.
+  The price of each item is abstracted at this point; the returned ArrayList
+  will be used to create a "Cart" / "Order".
+  */
 
   public ArrayList<String> parseFile(String fileName)throws IOException{
 

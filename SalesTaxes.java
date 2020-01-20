@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class SalesTaxes {
@@ -17,12 +16,9 @@ public class SalesTaxes {
 
     ParseInputFile newFile1 = new ParseInputFile();
 
-
     ArrayList <String> parsedFile = newFile1.parseFile(args[0]);
-    System.out.println(parsedFile);
 
-    // String message = "hello at home";
-    // String[] messageArray = message.split("at");
-    // System.out.println("MessageARRAY " + Arrays.toString(messageArray));
+    Order newOrder1 = new Order(parsedFile);
+    System.out.println("ORDER1 Items " + newOrder1.items);
   }
 }
