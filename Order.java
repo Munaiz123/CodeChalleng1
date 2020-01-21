@@ -35,9 +35,7 @@ public class Order{
   }
 
   public ArrayList<Product> processItems(Hashtable<String, Double> itemsHashtable){
-    /* This method places Product & ImportedProducts objects into an ArrayList,
-    which later will be looped through to calculate totals,
-    by iterating through the Hashtable. */
+    /* This method places Product & ImportedProducts objects into an ArrayList, which later will be looped through to calculate totals, by iterating through the Hashtable. */
 
     for(String key : itemsHashtable.keySet()){
       String productType;
@@ -53,9 +51,7 @@ public class Order{
         Product item = new Product(key, itemsHashtable.get(key), productType);
         processedItems.add(item);
       }
-
     }
-
     return processedItems;
   }
 

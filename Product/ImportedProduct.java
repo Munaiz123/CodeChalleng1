@@ -15,7 +15,7 @@ public class ImportedProduct extends Product {
 
   @Override
   public double calcPriceAfterTaxes(){
-    priceAfterTaxes = price * salesTaxRate * importDuty;
+    priceAfterTaxes = price * ( 1 + salesTaxRate + importDuty);
     return priceAfterTaxes;
   }
 

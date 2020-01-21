@@ -25,7 +25,5 @@ public class SalesTaxes {
       // System.out.println(p.name);
     }
 
-
-
   }
 }
