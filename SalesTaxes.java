@@ -19,10 +19,14 @@ public class SalesTaxes {
 
     ArrayList<Product> PROCESSEDITEMS = newOrder1.processItems(itemsHashTable);
 
+    System.out.println(PROCESSEDITEMS);
+
     for( Product p : PROCESSEDITEMS){
-      System.out.println(p);
-      System.out.println("PRICE AFTER TAX:" + p.calcPriceAfterTaxes());
+      // System.out.println(p);
+      p.calcPriceAfterTaxes();
+
       // System.out.println(p.name);
+      // Why won't line 25 work?
     }
 
   }

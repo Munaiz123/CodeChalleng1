@@ -8,15 +8,18 @@ public class ImportedProduct extends Product {
     super(name, price, type);
   }
 
-  @Override
-  public String toString(){
-    return "Name: " + name + " Price: " + price + " Product Type: " + productType;
-  }
+  // @Override
+  // public String toString(){
+  //   return "Name: " + name + " Price: " + price + " Product Type: " + productType;
+  // }
 
   @Override
   public double calcPriceAfterTaxes(){
     priceAfterTaxes = price * ( 1 + salesTaxRate + importDuty);
-    return priceAfterTaxes;
+
+    double roundedPrice = Math.round(priceAfterTaxes * 100.0) / 100.0;
+    System.out.println("IMPORTED ROUNDED PRICE " + roundedPrice);
+    return roundedPrice;
   }
 
 }

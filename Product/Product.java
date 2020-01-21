@@ -24,7 +24,10 @@ public class Product {
 
   public double calcPriceAfterTaxes(){
     priceAfterTaxes = price * (1 + salesTaxRate);
-    return priceAfterTaxes;
+
+    double roundedPrice = Math.round(priceAfterTaxes * 100.0) / 100.0;
+    System.out.println("ROUNDEDNUM ::: " + roundedPrice);
+    return roundedPrice;
   }
 
 }
