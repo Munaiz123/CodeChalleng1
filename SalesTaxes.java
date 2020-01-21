@@ -16,15 +16,12 @@ public class SalesTaxes {
     //Processing (creating an order) input commands
     Order newOrder1 = new Order(parsedFile);
     Hashtable<String, Double> itemsHashTable =  newOrder1.createHashtable(newOrder1.items);
-    // System.out.println("ITEMS HASHTABLE:: " + itemsHashTable);
 
     ArrayList<Product> PROCESSEDITEMS = newOrder1.processItems(itemsHashTable);
 
-    // System.out.println("PROCESSEDITEMS:: " + PROCESSEDITEMS );
-
-
     for( Product p : PROCESSEDITEMS){
-      System.out.println(p.toString());
+      System.out.println(p);
+      System.out.println("PRICE AFTER TAX:" + p.calcPriceAfterTaxes());
       // System.out.println(p.name);
     }
 

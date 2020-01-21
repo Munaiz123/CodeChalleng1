@@ -52,8 +52,6 @@ public class Order{
       } else {
         Product item = new Product(key, itemsHashtable.get(key), productType);
         processedItems.add(item);
-        // System.out.println("SYSTEMOUTPRINT:: " + item.toString());
-
       }
 
     }

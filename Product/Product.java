@@ -17,14 +17,14 @@ public class Product {
     name = productName;
     price = productPrice;
     productType = type;
-    if(productType == "Other") salesTaxRate = .1;
+    if(productType == "other") salesTaxRate = .1;
+    else salesTaxRate = 0;
 
   }
 
   public double calcPriceAfterTaxes(){
-    priceAfterTaxes= price * salesTaxRate;
+    priceAfterTaxes = price * (1 + salesTaxRate);
     return priceAfterTaxes;
   }
-
 
 }

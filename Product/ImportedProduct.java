@@ -4,8 +4,8 @@ public class ImportedProduct extends Product {
   boolean isImported = true;
   double importDuty = .05;
 
-  public ImportedProduct(String name, double productPrice, String type){
-    super(name, productPrice, type);
+  public ImportedProduct(String name, double price, String type){
+    super(name, price, type);
   }
 
   @Override
