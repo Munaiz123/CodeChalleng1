@@ -1,15 +1,21 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
+
+import Product.ImportedProduct;
 import Product.Product;
 
 
 public class Order{
   ArrayList<String> items;
-  ArrayList<Product> processedItems;
+  ArrayList<Product> processedItems = new ArrayList<Product>();
 
   double subTotal;
   double tax;
   double total;
+
+  protected enum Categoory{
+    Book, Food, Medical, Other
+  }
 
   public Order(ArrayList<String> itemsArray){
     items = itemsArray;
@@ -34,11 +40,23 @@ public class Order{
     by iterating through the Hashtable. */
 
     for(String key : itemsHashtable.keySet()){
-      System.out.println("KEY:: " + key + " --- VALUE:: " + itemsHashtable.get(key));
+      String productType;
+      if(key.contains("book")) productType = "book";
+      else if (key.contains("chocolate")) productType = "food";
+      else if (key.contains("pill")) productType = "medical";
+      else productType = "other";
+
+      if(key.contains("imported")){
+        ImportedProduct item = new ImportedProduct(key, itemsHashtable.get(key), productType);
+        processedItems.add(item);
+      } else {
+        Product item = new Product(key, itemsHashtable.get(key), productType);
+        processedItems.add(item);
+        // System.out.println("SYSTEMOUTPRINT:: " + item.toString());
+
+      }
+
     }
-
-    // may need switch statement here 🤔
-
 
     return processedItems;
   }

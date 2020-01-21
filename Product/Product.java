@@ -2,21 +2,22 @@ package Product;
 
 public class Product {
 
-  protected enum Categoory{
-    Book, Food, Medical, Other
-  }
-
   String name;
   double price;
   double salesTaxRate;
   double priceAfterTaxes;
-  Categoory productType;
+  String productType;
 
-  public Product(String productName, double productPrice, Categoory type){
+
+  public String toString(){
+    return "Name: " + name + " Price: " + price + " Type: " + productType;
+  }
+
+  public Product(String productName, double productPrice, String type){
     name = productName;
     price = productPrice;
     productType = type;
-    if(productType == Categoory.Other) salesTaxRate = .1;
+    if(productType == "Other") salesTaxRate = .1;
 
   }
 
@@ -24,5 +25,6 @@ public class Product {
     priceAfterTaxes= price * salesTaxRate;
     return priceAfterTaxes;
   }
+
 
 }
