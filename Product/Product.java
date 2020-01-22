@@ -11,8 +11,10 @@ public class Product {
   public double price;
   public double taxRate;
 
+  double finalPrice;
 
-  /*                CONSTRUCTOR METHODS FOR THE BASE PRODUCT CLASS                    */
+
+  /*                CONSTRUCTOR METHODS FOR THE BASE PRODUCT CLASS     */
   public Product(String productName, double productPrice, boolean isImported, double salestax){
     name = productName;
     price = productPrice;
@@ -22,7 +24,6 @@ public class Product {
     salesTax = salestax;
   }
 
-
   public String toString(){
     return "Name: " + name + " - Price: " + price + " - Sales Tax: " + salesTax + " - Import Duty:: " + importDuty;
   }
@@ -30,9 +31,19 @@ public class Product {
 
  /*This method will be overridden as subclasses will have
  a slightly different way of calculating the tax rate. */
+
+
   public double calcTaxRate(){
     taxRate = 1 + salesTax + importDuty;
     return taxRate;
+  }
+
+  public void calcFinalPrice(){
+    finalPrice = taxRate*price;
+  }
+
+  public double getFinalPrice(){
+    return this.finalPrice;
   }
 
 }

@@ -16,11 +16,14 @@ public class Order{
   double total;
   boolean isImported;
 
-  public Order(ArrayList<String> itemsArray){ // Constructor Method
+
+  /*        CONSTRUCTOR METHOD      */
+  public Order(ArrayList<String> itemsArray){
     items = itemsArray;
   }
 
-
+  /* This method creates a hashtable of products &
+   which will be used to create an ArrayList*/
   public Hashtable<String,Double> createHashtable(ArrayList<String> itemsArray){
 
     Hashtable<String, Double> allItemsHash = new Hashtable<String, Double>();
@@ -35,9 +38,10 @@ public class Order{
   }
 
 
-
   public ArrayList<Product> processItems(Hashtable <String, Double> itemsHashtable){
-    /* This method places the different Product objects into an ArrayList, which later will be looped through to calculate totals, by iterating through the Hashtable. */
+    /* This method places the different Product objects into an ArrayList,
+    which later will be looped through to calculate totals,
+    by iterating through the Hashtable. */
 
     for(String key : itemsHashtable.keySet()){
 
@@ -67,7 +71,6 @@ public class Order{
   }
 
 
-
   public void calcProductTaxRates(){
     for( Product p : processedItems){
       System.out.println(p);
@@ -79,26 +82,25 @@ public class Order{
 
   /* DEFINED A FEW GETTER & SETTER (CALC) METHODS TO PRACTICE ENCAPSULATION */
 
-  public double getTotal(){
+  public double getOrderTotal(){
     return this.total;
   }
 
-  public double getTax(){
+  public double getOrderTax(){
     return this.tax;
   }
 
-  public double getSubtotal(){
+  public double getOrderSubtotal(){
     return this.subTotal;
   }
 
-
-  protected void calcTotal(){
+  protected void calcOrderTotal(){
     for( Product p : processedItems){
       total +=  Math.round((p.taxRate * p.price) * 100.0) / 100.0;
     }
   }
 
-  protected void calcTaxes(){
+  protected void calcOrderTaxes(){
     for(Product p : processedItems){
       subTotal += p.price;
     }
