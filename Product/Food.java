@@ -8,6 +8,8 @@ public class Food extends Product{
 
   ArrayList<String> ingrediants = new ArrayList<String>();
 
+
+  /*                CONSTRUCTOR METHODS FOR THE FOOD CLASS                    */
   public Food(String name, double price, boolean isImported, double salesTax){
     super(name, price, isImported, salesTax);
     if(isImported == true) this.importDuty = .05;
@@ -20,6 +22,7 @@ public class Food extends Product{
     return taxRate;
   }
 
+  /* ADDED METHOD TO DEMONSTRATE POTENTIAL FOOD CLASS FUNCTIONALITY */
   private void addIngredient(String ingredient){
     this.ingrediants.add(ingredient);
   }

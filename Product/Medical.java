@@ -8,6 +8,8 @@ public class Medical extends Product{
 
   ArrayList<String> ingrediants = new ArrayList<String>();
 
+
+/*             CONSTRUCTOR METHODS FOR THE MEDICAL PRODUCTS CLASS      */
   public Medical(String name, double price, boolean isImported, double salesTax){
     super(name, price, isImported, salesTax);
     if(isImported == true) this.importDuty = .05;
@@ -20,4 +22,5 @@ public class Medical extends Product{
     this.taxRate = 1 + this.importDuty;
     return taxRate;
   }
+
 }

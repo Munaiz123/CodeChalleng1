@@ -13,14 +13,13 @@ public class Order{
 
   double subTotal;
   double tax;
-
   double total;
-
   boolean isImported;
 
-  public Order(ArrayList<String> itemsArray){
+  public Order(ArrayList<String> itemsArray){ // Constructor Method
     items = itemsArray;
   }
+
 
   public Hashtable<String,Double> createHashtable(ArrayList<String> itemsArray){
 
@@ -34,6 +33,8 @@ public class Order{
     }
     return allItemsHash;
   }
+
+
 
   public ArrayList<Product> processItems(Hashtable <String, Double> itemsHashtable){
     /* This method places the different Product objects into an ArrayList, which later will be looped through to calculate totals, by iterating through the Hashtable. */
@@ -65,13 +66,18 @@ public class Order{
     return processedItems;
   }
 
+
+
   public void calcProductTaxRates(){
     for( Product p : processedItems){
-      // System.out.println(p);
-      p.taxRate = p.calcTaxRate();
+      System.out.println(p);
+      p.taxRate = Math.round(p.calcTaxRate() * 100.0) / 100.0;
+      // System.out.println(p.taxRate);
     }
 
   }
+
+  /* DEFINED A FEW GETTER & SETTER (CALC) METHODS TO PRACTICE ENCAPSULATION */
 
   public double getTotal(){
     return this.total;
@@ -85,9 +91,10 @@ public class Order{
     return this.subTotal;
   }
 
+
   protected void calcTotal(){
     for( Product p : processedItems){
-      total +=  p.taxRate * p.price;
+      total +=  Math.round((p.taxRate * p.price) * 100.0) / 100.0;
     }
   }
 
@@ -95,13 +102,7 @@ public class Order{
     for(Product p : processedItems){
       subTotal += p.price;
     }
-    tax = total - subTotal;
-  }
-
-  public double processOrder(){
-    // I would like this method to loop through the productArray(array of objects) and calculate the tax, subtotal & total.
-
-    return total;
+    tax = Math.round((total - subTotal) * 100.0) / 100.0;
   }
 
 }
