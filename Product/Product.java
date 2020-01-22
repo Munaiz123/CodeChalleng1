@@ -8,15 +8,16 @@ public class Product {
 
   double salesTax;
   double importDuty;
-  double taxRate;
 
+  public double taxRate;
 
 
   public Product(String productName, double productPrice, boolean isImported, double salestax){
     name = productName;
     price = productPrice;
-    if(isImported == true) importDuty = .05;
-    else importDuty = 0;
+    if(isImported == true) this.importDuty = .05;
+    else this.importDuty = 0;
+
     salesTax = salestax;
   }
 
@@ -24,6 +25,9 @@ public class Product {
     return "Name: " + name + " - Price: " + price + " - Sales Tax: " + salesTax + " - Import Duty:: " + importDuty;
   }
 
-
+  public double calcTaxRate(){
+    taxRate = 1 + salesTax + importDuty;
+    return taxRate;
+  }
 
 }

@@ -16,12 +16,10 @@ public class SalesTaxes {
     //Processing (creating creating object instances) input commands
     Order newOrder1 = new Order(parsedFile);
     Hashtable<String, Double> itemsHashTable =  newOrder1.createHashtable(newOrder1.items);
+    newOrder1.processItems(itemsHashTable);
+    newOrder1.calcProductTaxRates();
 
-    ArrayList<Product> PROCESSEDITEMS = newOrder1.processItems(itemsHashTable);
 
-    for( Product p : PROCESSEDITEMS){
-      System.out.println(p);
-    }
 
   }
 }

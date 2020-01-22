@@ -39,7 +39,7 @@ public class Order{
     for(String key : itemsHashtable.keySet()){
 
       if(key.contains("imported")) isImported = true;
-      else isImported = false;
+      if(key.indexOf("imported") == -1) isImported = false;
 
 
       if(key.contains("book")){
@@ -62,6 +62,15 @@ public class Order{
     }
     return processedItems;
   }
+
+  public void calcProductTaxRates(){
+    for( Product p : processedItems){
+      System.out.println(p);
+      p.taxRate = p.calcTaxRate();
+      System.out.println("TAXRATE - " + p.taxRate);
+    }
+  }
+
 
   public double processOrder(){
     // I would like this method to loop through the productArray(array of objects) and calculate the tax, subtotal & total.
