@@ -11,9 +11,6 @@ public class Product {
   double taxRate;
 
 
-  public String toString(){
-    return "Name: " + name + " - Price: " + price + " - isImported: " + isImported +  " - Sales Tax: " + salesTax + " - Import Duty:: " + importDuty;
-  }
 
   public Product(String productName, double productPrice, boolean isImported, double salestax){
     name = productName;
@@ -21,6 +18,10 @@ public class Product {
     if(isImported == true) importDuty = .05;
     else importDuty = 0;
     salesTax = salestax;
+  }
+
+  public String toString(){
+    return "Name: " + name + " - Price: " + price + " - Sales Tax: " + salesTax + " - Import Duty:: " + importDuty;
   }
 
 

@@ -10,5 +10,4 @@ public class Medical extends Product{
     super(name, price, isImported, salesTax);
   }
 
-
 }

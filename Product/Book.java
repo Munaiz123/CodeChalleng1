@@ -6,8 +6,6 @@ public class Book extends Product{
   String publisher;
   String genre;
 
-  double salesTax;
-
   public Book(String name, double price, boolean isImported, double salesTax){
     super(name, price, isImported, salesTax);
   }

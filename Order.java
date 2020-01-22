@@ -14,6 +14,7 @@ public class Order{
   double subTotal;
   double tax;
   double total;
+  boolean isImported;
 
   public Order(ArrayList<String> itemsArray){
     items = itemsArray;
@@ -32,12 +33,10 @@ public class Order{
     return allItemsHash;
   }
 
-  public ArrayList<Product> processItems(Hashtable<String, Double> itemsHashtable){
+  public ArrayList<Product> processItems(Hashtable <String, Double> itemsHashtable){
     /* This method places the different Product objects into an ArrayList, which later will be looped through to calculate totals, by iterating through the Hashtable. */
 
     for(String key : itemsHashtable.keySet()){
-
-      boolean isImported;
 
       if(key.contains("imported")) isImported = true;
       else isImported = false;
