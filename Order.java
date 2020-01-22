@@ -13,7 +13,9 @@ public class Order{
 
   double subTotal;
   double tax;
+
   double total;
+
   boolean isImported;
 
   public Order(ArrayList<String> itemsArray){
@@ -65,12 +67,36 @@ public class Order{
 
   public void calcProductTaxRates(){
     for( Product p : processedItems){
-      System.out.println(p);
+      // System.out.println(p);
       p.taxRate = p.calcTaxRate();
-      System.out.println("TAXRATE - " + p.taxRate);
+    }
+
+  }
+
+  public double getTotal(){
+    return this.total;
+  }
+
+  public double getTax(){
+    return this.tax;
+  }
+
+  public double getSubtotal(){
+    return this.subTotal;
+  }
+
+  protected void calcTotal(){
+    for( Product p : processedItems){
+      total +=  p.taxRate * p.price;
     }
   }
 
+  protected void calcTaxes(){
+    for(Product p : processedItems){
+      subTotal += p.price;
+    }
+    tax = total - subTotal;
+  }
 
   public double processOrder(){
     // I would like this method to loop through the productArray(array of objects) and calculate the tax, subtotal & total.

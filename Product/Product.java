@@ -3,7 +3,7 @@ package Product;
 public class Product {
 
   String name;
-  double price;
+  public double price;
   boolean isImported;
 
   double salesTax;

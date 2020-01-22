@@ -18,7 +18,10 @@ public class SalesTaxes {
     Hashtable<String, Double> itemsHashTable =  newOrder1.createHashtable(newOrder1.items);
     newOrder1.processItems(itemsHashTable);
     newOrder1.calcProductTaxRates();
-
+    newOrder1.calcTotal();
+    newOrder1.calcTaxes();
+    System.out.println(newOrder1.getTotal());
+    System.out.println(newOrder1.getTax());
 
 
   }
