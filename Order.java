@@ -34,30 +34,32 @@ public class Order{
 
   public ArrayList<Product> processItems(Hashtable<String, Double> itemsHashtable){
     /* This method places the different Product objects into an ArrayList, which later will be looped through to calculate totals, by iterating through the Hashtable. */
-    boolean isImported;
-    Product item;
 
     for(String key : itemsHashtable.keySet()){
 
+      boolean isImported;
 
       if(key.contains("imported")) isImported = true;
       else isImported = false;
 
 
       if(key.contains("book")){
-        item = new Book(key, itemsHashtable.get(key), isImported);
+        Book item = new Book(key, itemsHashtable.get(key), isImported, 0);
+        processedItems.add(item);
       }
       else if (key.contains("chocolate")){
-        item = new Food(key, itemsHashtable.get(key), isImported);
+        Food item = new Food(key, itemsHashtable.get(key), isImported, 0);
+        processedItems.add(item);
       }
       else if (key.contains("pill")){
-        item = new Medical(key, itemsHashtable.get(key), isImported);
+        Medical item = new Medical(key, itemsHashtable.get(key), isImported, 0);
+        processedItems.add(item);
       }
       else{
-        item = new Product(key, itemsHashtable.get(key), isImported);
+        Product item = new Product(key, itemsHashtable.get(key), isImported, .1);
+        processedItems.add(item);
       }
 
-      processedItems.add(item);
     }
     return processedItems;
   }
