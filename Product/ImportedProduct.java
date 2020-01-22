@@ -4,22 +4,19 @@ public class ImportedProduct extends Product {
   boolean isImported = true;
   double importDuty = .05;
 
-  public ImportedProduct(String name, double price, String type){
-    super(name, price, type);
+  public ImportedProduct(String name, double price, boolean isImported){
+    super(name, price, isImported);
   }
+
+
 
   // @Override
-  // public String toString(){
-  //   return "Name: " + name + " Price: " + price + " Product Type: " + productType;
+  // public double calcPriceAfterTaxes(){
+  //   priceAfterTaxes = price * ( 1 + salesTaxRate + importDuty);
+
+  //   double roundedPrice = Math.round(priceAfterTaxes * 100.0) / 100.0;
+  //   System.out.println("IMPORTED ROUNDED PRICE " + roundedPrice);
+  //   return roundedPrice;
   // }
-
-  @Override
-  public double calcPriceAfterTaxes(){
-    priceAfterTaxes = price * ( 1 + salesTaxRate + importDuty);
-
-    double roundedPrice = Math.round(priceAfterTaxes * 100.0) / 100.0;
-    System.out.println("IMPORTED ROUNDED PRICE " + roundedPrice);
-    return roundedPrice;
-  }
 
 }

@@ -4,30 +4,24 @@ public class Product {
 
   String name;
   double price;
-  double salesTaxRate;
-  double priceAfterTaxes;
-  String productType;
+  boolean isImported;
+
+  double salesTax = .1;
+  double importDuty;
+  double taxRate;
 
 
   public String toString(){
-    return "Name: " + name + " Price: " + price + " Type: " + productType;
+    return "Name: " + name + " - Price: " + price + " - isImported: " + isImported +  " - Sales Tax: " + salesTax;
   }
 
-  public Product(String productName, double productPrice, String type){
+  public Product(String productName, double productPrice, boolean isImported){
     name = productName;
     price = productPrice;
-    productType = type;
-    if(productType == "other") salesTaxRate = .1;
-    else salesTaxRate = 0;
-
+    if(isImported == true) importDuty = .05;
+    else importDuty = 0;
   }
 
-  public double calcPriceAfterTaxes(){
-    priceAfterTaxes = price * (1 + salesTaxRate);
 
-    double roundedPrice = Math.round(priceAfterTaxes * 100.0) / 100.0;
-    System.out.println("ROUNDEDNUM ::: " + roundedPrice);
-    return roundedPrice;
-  }
 
 }

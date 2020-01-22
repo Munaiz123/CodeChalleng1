@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import Product.ImportedProduct;
+import Product.Book;
+import Product.Food;
+import Product.Medical;
 import Product.Product;
 
 
@@ -12,10 +14,6 @@ public class Order{
   double subTotal;
   double tax;
   double total;
-
-  protected enum Categoory{
-    Book, Food, Medical, Other
-  }
 
   public Order(ArrayList<String> itemsArray){
     items = itemsArray;
@@ -35,22 +33,31 @@ public class Order{
   }
 
   public ArrayList<Product> processItems(Hashtable<String, Double> itemsHashtable){
-    /* This method places Product & ImportedProducts objects into an ArrayList, which later will be looped through to calculate totals, by iterating through the Hashtable. */
+    /* This method places the different Product objects into an ArrayList, which later will be looped through to calculate totals, by iterating through the Hashtable. */
+    boolean isImported;
+    Product item;
 
     for(String key : itemsHashtable.keySet()){
-      String productType;
-      if(key.contains("book")) productType = "book";
-      else if (key.contains("chocolate")) productType = "food";
-      else if (key.contains("pill")) productType = "medical";
-      else productType = "other";
 
-      if(key.contains("imported")){
-        ImportedProduct item = new ImportedProduct(key, itemsHashtable.get(key), productType);
-        processedItems.add(item);
-      } else {
-        Product item = new Product(key, itemsHashtable.get(key), productType);
-        processedItems.add(item);
+
+      if(key.contains("imported")) isImported = true;
+      else isImported = false;
+
+
+      if(key.contains("book")){
+        item = new Book(key, itemsHashtable.get(key), isImported);
       }
+      else if (key.contains("chocolate")){
+        item = new Food(key, itemsHashtable.get(key), isImported);
+      }
+      else if (key.contains("pill")){
+        item = new Medical(key, itemsHashtable.get(key), isImported);
+      }
+      else{
+        item = new Product(key, itemsHashtable.get(key), isImported);
+      }
+
+      processedItems.add(item);
     }
     return processedItems;
   }
