@@ -8,7 +8,7 @@ public class Receipt{
     allItems = processedItemArray;
   }
 
-  public void printReceipt(){  //part of processing not PRESENTING OUTPUT.
+  public void printReceipt(){
     for(Product item : allItems){
       item.calcFinalPrice();
       System.out.println(item.name + ": " + item.getFinalPrice());
