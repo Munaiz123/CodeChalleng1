@@ -9,12 +9,11 @@ public class SalesTaxes {
   public static void main(String[] args) throws IOException{
 
     /*PARSING INPUT */
-
     ParseInputFile newFile1 = new ParseInputFile();
     ArrayList <String> parsedFile = newFile1.parseFile(args[0]);
 
-    /* PROCESSING INPUT (CREATING AN ORDER INSTANCE) */
 
+    /* PROCESSING INPUT (CREATING AN ORDER INSTANCE) */
     Order newOrder1 = new Order(parsedFile);
     Hashtable<String, Double> itemsHashTable =  newOrder1.createHashtable(newOrder1.items);
 

@@ -10,7 +10,8 @@ public class Book extends Product{
   double importDuty;
   double salesTax;
 
-  /*                CONSTRUCTOR METHODS FOR BOOK CLASS                    */
+
+  /*   CONSTRUCTOR METHODS FOR BOOK CLASS  */
   public Book(String name, double price, boolean isImported, double salesTax){
     super(name, price, isImported, salesTax);
     if(isImported == true) this.importDuty = .05;
@@ -40,7 +41,5 @@ public class Book extends Product{
   private void setGenre(String genreCategory){
     this.genre = genreCategory;
   }
-
-
 
 }
