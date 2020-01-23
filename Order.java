@@ -73,9 +73,7 @@ public class Order{
 
   public void calcProductTaxRates(){
     for( Product p : processedItems){
-      System.out.println(p);
       p.taxRate = Math.round(p.calcTaxRate() * 100.0) / 100.0;
-      // System.out.println(p.taxRate);
     }
 
   }
@@ -104,7 +102,7 @@ public class Order{
     for(Product p : processedItems){
       subTotal += p.price;
     }
-    tax = Math.round((total - subTotal) * 100.0) / 100.0;
+    tax = Math.round((total - subTotal) * 100.00) / 100.0;
   }
 
 }

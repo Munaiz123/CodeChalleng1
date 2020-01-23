@@ -2,7 +2,7 @@ package Product;
 
 public class Product {
 
-  String name;
+  public String name;
   boolean isImported;
 
   double salesTax;
@@ -39,7 +39,7 @@ public class Product {
   }
 
   public void calcFinalPrice(){
-    finalPrice = taxRate*price;
+    finalPrice = Math.round((taxRate*price) * 100.0) / 100.0;
   }
 
   public double getFinalPrice(){

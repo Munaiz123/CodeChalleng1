@@ -11,9 +11,9 @@ public class Receipt{
   public void printReceipt(){  //part of processing not PRESENTING OUTPUT.
     for(Product item : allItems){
       item.calcFinalPrice();
-      System.out.println(item.getFinalPrice());
+      System.out.println(item.name + ": " + item.getFinalPrice());
     }
   }
-
-
 }
+
+
