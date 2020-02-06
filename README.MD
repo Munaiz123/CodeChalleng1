@@ -1,4 +1,4 @@
-# Sales Taxes (JAVA) #
+# Taxes #
 
 ## Installation ##
 
